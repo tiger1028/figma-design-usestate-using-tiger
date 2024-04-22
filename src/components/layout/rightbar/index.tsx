@@ -3,13 +3,13 @@ import Menu from '/svgs/menu.svg';
 import { INITIAL_INFORMATION, InformationType } from "../../../consts";
 
 interface RightBarComponentProps {
-  chooseInformation: (index: number, subtitle: string) => void;
+  chooseInformation: (index: number, url: string) => void;
 }
 
 export const RightBarComponent: React.FC<RightBarComponentProps> = ({ chooseInformation }) => {
   const selectIndex = (index: number) => {
-    const subtitle = INITIAL_INFORMATION[index].subtitle;
-    chooseInformation(index, subtitle);
+    const url = INITIAL_INFORMATION[index].url;
+    chooseInformation(index, url);
   }
   return (
       <RightBar.RightBar>

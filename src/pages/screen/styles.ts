@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div<{ state: string }>`
+export const Container = styled.div<{ url: string }>`
   position: fixed;
   display: flex;
   justify-content: space-between;
@@ -11,5 +11,5 @@ export const Container = styled.div<{ state: string }>`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: ${({ state }) => `url("images/${state}.png")`};
+  background-image: ${({ url }) => `url("${url}")`};
 `;
