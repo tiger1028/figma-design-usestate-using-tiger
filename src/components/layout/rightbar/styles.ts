@@ -1,15 +1,12 @@
 import styled from "styled-components";
 
-export const Footer = styled.div`
+export const RightBar = styled.div`
   display: flex;
   width: 400px;
   height: 100%;
-  position: fixed;
-  right: 0px;
-  bottom: 0px;
   flex-direction: column;
   justify-content: space-between;
-`
+`;
 
 export const MenuItemBox = styled.div`
   display: flex;
@@ -17,24 +14,23 @@ export const MenuItemBox = styled.div`
   justify-content: flex-end;
   margin-top: 40px;
   margin-right: 40px;
-`
+`;
 
 export const MenuBotton = styled.img`
-  width: 50px;
-  height: 50px;
-`
+  width: 40px;
+  height: 40px;
+`;
 
 export const ButtonBox = styled.div`
-  bottom: 0px;
   display: grid;
   grid-template-columns: auto auto;
-  width: 400px;
   height: 600px;
-`
+`;
 
 export const ButtonItem = styled.button`
   border: none;
   cursor: pointer;
+  height: 200px;
   &:nth-child(2) {
     background-color: rgba(255, 255, 255, 0.15);
   }
@@ -51,19 +47,21 @@ export const ButtonItem = styled.button`
   &:hover {
     border: 1px solid black;
   }
-`
+`;
 
-export const ButtonItem1 = styled.button`
+export const ButtonItemFirst = styled.button`
   border: none;
+  height: 200px;
+  cursor: pointer;
   grid-column: 2 / 3;
   background-color: rgba(255, 255, 255, 0.15);
   &:hover {
     border: 1px solid black;
   }
-`
+`;
 
 export const ButtonText = styled.p`
-  font-size: 40px;
+  font-size: 35px;
   color: white;
   font-weight: 400;
-`
+`;

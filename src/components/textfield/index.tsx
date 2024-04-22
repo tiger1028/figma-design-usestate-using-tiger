@@ -1,6 +1,6 @@
-import { MainContent, Title, Icon, SubTextContainer, SubText, SubTitle} from "./styles"
+import * as TextField from "./styles";
 import arrow from '/svgs/arrow.svg';
-import { InformationType } from "../../consts/information";
+import { InformationType } from "../../consts";
 
 interface TextFieldComponentProps {
   information: InformationType;
@@ -8,15 +8,15 @@ interface TextFieldComponentProps {
 
 export const TextFieldComponent: React.FC<TextFieldComponentProps> = ({information}) => {
   return (
-      <MainContent>
-        <Title>{information.title}</Title>  
-        <Icon src = {arrow}></Icon>
-        <SubTextContainer>
-          <SubTitle>{information.subtitle}</SubTitle>
-          <SubText>{information.descrition1}</SubText>
-          <SubText>{information.descrition2}</SubText>
-        </SubTextContainer>
-      </MainContent>
+      <TextField.MainContent>
+        <TextField.Title>{information.title}</TextField.Title>  
+        <TextField.Icon src = {arrow}></TextField.Icon>
+        <TextField.SubTextContainer>
+          <TextField.SubTitle>{information.subtitle}</TextField.SubTitle>
+          <TextField.SubText>{information.descrition1}</TextField.SubText>
+          <TextField.SubText>{information.descrition2}</TextField.SubText>
+        </TextField.SubTextContainer>
+      </TextField.MainContent>
   )
 }
 
