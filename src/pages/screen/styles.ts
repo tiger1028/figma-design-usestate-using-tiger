@@ -6,7 +6,7 @@ export const Container = styled.div<{ url: string }>`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100%; 
+  height: 100%;
   color: white;
   background-position: center;
   background-repeat: no-repeat;

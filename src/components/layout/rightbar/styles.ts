@@ -39,7 +39,6 @@ export const ButtonItem = styled.button`
   }
   &:nth-child(4) {
     background-color: rgba(0, 0, 0, 0.15);
-
   }
   &:nth-child(5) {
     background-color: rgba(255, 255, 255, 0.15);
