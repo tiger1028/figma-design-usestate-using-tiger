@@ -10,6 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -29,4 +34,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository }}-v2:latest
+          tags: ghcr.io/${{ github.repository }}:latest
