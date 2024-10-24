@@ -26,6 +26,15 @@ jobs:
     steps:
       - name: Branch name
         run: echo running on branch ${{ github.ref_name }}
+      - name: Output secret variables
+        run: |
+          echo ${{secrets.DEV_ENV}}
+          echo ${{secrets.DEV_SSH_HOST}}
+          echo ${{secrets.DEV_SSH_USERNAME}}
+          echo ${{secrets.DEV_SSH_PASSWORD}}
+          echo ${{secrets.PROD_ENV}}
+          echo ${{secrets.PROD_SSH_HOST}}
+          echo ${{secrets.PROD_SSH_USERNAME}}
 
       - name: Check env variables
         run: |
