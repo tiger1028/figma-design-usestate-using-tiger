@@ -19,8 +19,16 @@ jobs:
 
     steps:
       - name: Branch name
-        run: echo running on branch ${GITHUB_REF##*/}
+        run: echo running on branch ${{ github.ref_name }}
 
+      - name: Define env variables
+        if: github.ref_name == 'dev'
+        env:
+          ENV: DEV_ENV
+          SSH_HOST: DEV_SSH_HOST
+          SSH_USERNAME: DEV_USERNAME
+          SSH_PASSWORD: DEV_PASSWORD
+        run: echo $ENV  $SSH_HOST  $SSH_USERNAME   $SSH_PASSWORD
       # - name: Checkout code
       #   uses: actions/checkout@v3
 
