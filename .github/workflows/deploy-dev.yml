@@ -16,6 +16,9 @@ jobs:
       attestations: write
 
     steps:
+      - name: Check the branch name
+        run: echo "main"
+
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -35,3 +38,22 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/${{ github.repository }}:latest
+
+  # deploy:
+  #   needs: [build]
+
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Deploy to Remote Server
+  #       uses: appleboy/ssh-action@master
+  #       with:
+  #         host: ${{ secrets.DEV_SSH_HOST }}
+  #         username: ${{ secrets.DEV_SSH_USERNAME }}
+  #         password: ${{ secrets.DEV_SSH_PASSWORD }}
+  #         script: |
+  #           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+  #           docker rm $(docker stop $(docker ps -a -q --filter ancestor=ghcr.io/${{ github.repository }}))
+  #           docker rmi ghcr.io/${{ github.repository }}
+  #           docker pull ghcr.io/${{ github.repository }}:latest
+  #           docker run -d --name myfirstpro --network tiger ghcr.io/${{ github.repository }}:latest
