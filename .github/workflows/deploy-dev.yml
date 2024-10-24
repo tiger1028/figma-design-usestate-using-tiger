@@ -21,14 +21,30 @@ jobs:
       - name: Branch name
         run: echo running on branch ${{ github.ref_name }}
 
-      - name: Define env variables
+      - name: Define dev env variables
         if: github.ref_name == 'dev'
         env:
           ENV: DEV_ENV
           SSH_HOST: DEV_SSH_HOST
           SSH_USERNAME: DEV_USERNAME
           SSH_PASSWORD: DEV_PASSWORD
-        run: echo $ENV  $SSH_HOST  $SSH_USERNAME   $SSH_PASSWORD
+        run: |
+          echo $ENV $SSH_HOST $SSH_USERNAME $SSH_PASSWORD
+          echo "Environment variables set for ${{ github.ref_name }}"
+
+      - name: Define dev env variables
+        if: github.ref_name == 'main'
+        env:
+          ENV: PROD_ENV
+          SSH_HOST: PROD_SSH_HOST
+          SSH_USERNAME: PROD_USERNAME
+          SSH_PASSWORD: PROD_PASSWORD
+        run: |
+          echo $ENV $SSH_HOST $SSH_USERNAME $SSH_PASSWORD
+          echo "Environment variables set for ${{ github.ref_name }}"
+
+      - name: Check env variables
+        run: echo $ENV $SSH_HOST $SSH_USERNAME $SSH_PASSWORD
       # - name: Checkout code
       #   uses: actions/checkout@v3
 
