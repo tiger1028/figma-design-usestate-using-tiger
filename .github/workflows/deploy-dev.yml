@@ -16,8 +16,8 @@ jobs:
       attestations: write
 
     steps:
-      - name: Check the branch name
-        run: echo "Hello World!"
+      - name: Branch name
+        run: echo running on branch ${GITHUB_REF##*/}
 
       - name: Checkout code
         uses: actions/checkout@v3
