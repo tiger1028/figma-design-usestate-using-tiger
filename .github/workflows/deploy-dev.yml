@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Check the branch name
-        run: echo "main"
+        run: echo "Hello World!"
 
       - name: Checkout code
         uses: actions/checkout@v3
