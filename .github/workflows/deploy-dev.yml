@@ -25,7 +25,7 @@ jobs:
         if: github.ref_name == 'dev'
         env:
           ENV: DEV_ENV
-          SSH_HOST: DEV_HOST
+          SSH_HOST: DEV_SSH_HOST
           SSH_USERNAME: DEV_USERNAME
           SSH_PASSWORD: DEV_PASSWORD
         run: echo $ENV  $SSH_HOST  $SSH_USERNAME   $SSH_PASSWORD
