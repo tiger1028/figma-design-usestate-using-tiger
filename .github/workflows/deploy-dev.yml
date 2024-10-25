@@ -18,23 +18,17 @@ jobs:
       attestations: write
 
     env:
-      ENV: ${{github.ref_name == 'dev' && 'DEV_ENV' || 'PROD_ENV'}}
-      SSH_HOST: ${{github.ref_name == 'dev' && 'DEV_SSH_HOST' || 'PROD_SSH_HOST'}}
-      SSH_USERNAME: ${{github.ref_name == 'dev' && 'DEV_USERNAME' || 'PROD_USERNAME'}}
-      SSH_PASSWORD: ${{github.ref_name == 'dev' && 'DEV_PASSWORD' || 'PROD_PASSWORD'}}
+      ENV: ${{github.ref_name == 'dev' && secrets.DEV_ENV || secrets.PROD_ENV}}
+      SSH_HOST: ${{github.ref_name == 'dev' && secrets.DEV_SSH_HOST || secrets.PROD_SSH_HOST}}
+      SSH_USERNAME: ${{github.ref_name == 'dev' && secrets.DEV_SSH_USERNAME || secrets.PROD_SSH_USERNAME}}
+      SSH_PASSWORD: ${{github.ref_name == 'dev' && secrets.DEV_SSH_PASSWORD || secrets.PROD_SSH_PASSWORD}}
 
     steps:
       - name: Branch name
         run: echo running on branch ${{ github.ref_name }}
-      - name: Output secret variables
-        run: |
-          echo ${{secrets.DEV_ENV}}
-          echo ${{secrets.DEV_SSH_HOST}}
-          echo ${{secrets.DEV_SSH_USERNAME}}
-          echo ${{secrets.DEV_SSH_PASSWORD}}
-          echo ${{secrets.PROD_ENV}}
-          echo ${{secrets.PROD_SSH_HOST}}
-          echo ${{secrets.PROD_SSH_USERNAME}}
+
+      - name: Create .env file from GitHub Secrets
+        run: echo '${{ env.ENV }}' > .env
 
       - name: Check env variables
         run: |
