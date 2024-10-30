@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  myfistpro:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: myfirst
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
